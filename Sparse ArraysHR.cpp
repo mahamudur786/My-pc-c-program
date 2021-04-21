@@ -1,0 +1,70 @@
+#include<bits/stdc++.h>
+using namespace std;
+vector<int> matchingStrings(vector<string> strings, vector<string> queries) {
+    vector <int> s;
+    int count;
+    int i,j;
+    for(i=0;i<queries.size();i++){
+    count=0;
+    j=0;
+    while(j<strings.size()){
+     if(strings[j]==queries[i])
+     {
+         count++;
+         }
+     else 
+     j++;   
+    }
+    s.push_back(count);
+  }
+return s;
+}
+
+
+int main()
+{
+     
+
+    int strings_count;
+    cin >> strings_count;
+    cin.ignore(numeric_limits<streamsize>::max(), '\n');
+
+    vector<string> strings(strings_count);
+
+    for (int i = 0; i < strings_count; i++) {
+        string strings_item;
+        getline(cin, strings_item);
+
+        strings[i] = strings_item;
+    }
+
+    int queries_count;
+    cin >> queries_count;
+    cin.ignore(numeric_limits<streamsize>::max(), '\n');
+
+    vector<string> queries(queries_count);
+
+    for (int i = 0; i < queries_count; i++) {
+        string queries_item;
+        getline(cin, queries_item);
+
+        queries[i] = queries_item;
+    }
+
+    vector<int> res = matchingStrings(strings, queries);
+
+    for (int i = 0; i < res.size(); i++) {
+        cout << res[i];
+
+        if (i != res.size() - 1) {
+            cout << "\n";
+        }
+    }
+
+    cout << "\n";
+
+    fout.close();
+
+    return 0;
+}
+
